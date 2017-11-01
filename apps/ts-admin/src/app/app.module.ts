@@ -3,18 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MDBBootstrapModulePro, MDBSpinningPreloader } from 'angular-bootstrap-md';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AgmCoreModule } from '@agm/core';
+import { ScrollDirective } from './scroll.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScrollDirective
   ],
   imports: [
-    BrowserModule, MDBBootstrapModulePro.forRoot(), AgmCoreModule.forRoot({ apiKey: environment.agmApiKey })
+    BrowserModule, MDBBootstrapModule.forRoot(), AgmCoreModule.forRoot({ apiKey: environment.agmApiKey })
   ],
-  providers: [MDBSpinningPreloader],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
+
+

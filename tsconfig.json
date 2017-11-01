@@ -1,18 +1,17 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
     "suppressExcessPropertyErrors": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es5",
     "typeRoots": [
@@ -22,11 +21,11 @@
       "es2017",
       "dom"
     ],
+    "baseUrl": ".",
     "paths": {
       "@ts-admin/*": [
         "libs/*"
       ]
-    },
-    "baseUrl": "."
+    }
   }
 }
