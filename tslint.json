@@ -137,5 +137,12 @@
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "invoke-injectable": true
-  }
+  },
+  "nx-enforce-module-boundaries": [
+    true,
+    {
+      "npmScope": "ts-admin",
+      "lazyLoad": []
+    }
+  ]
 }

@@ -5,8 +5,8 @@
   },
   "apps": [
     {
-      "root": "src",
-      "outDir": "dist",
+      "root": "apps/ts-admin/src",
+      "outDir": "dist/apps/ts-admin",
       "assets": [
         "assets",
         "favicon.ico"
@@ -14,14 +14,22 @@
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
+      "test": "../../../test.js",
+      "tsconfig": "../../../tsconfig.app.json",
+      "testTsconfig": "../../../tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../../../node_modules/font-awesome/scss/font-awesome.scss",
+        "../../../node_modules/ng-mdb-pro/assets/scss/bootstrap/bootstrap.scss",
+        "../../../node_modules/ng-mdb-pro/assets/scss/mdb.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "../../../node_modules/chart.js/dist/Chart.js",
+        "../../../node_modules/easy-pie-chart/dist/easypiechart.js",
+        "../../../node_modules/screenfull/dist/screenfull.js",
+        "../../../node_modules/hammerjs/hammer.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -36,16 +44,13 @@
   },
   "lint": [
     {
-      "project": "src/tsconfig.app.json",
-      "exclude": "**/node_modules/**"
+      "project": "./tsconfig.app.json"
     },
     {
-      "project": "src/tsconfig.spec.json",
-      "exclude": "**/node_modules/**"
+      "project": "./tsconfig.spec.json"
     },
     {
-      "project": "e2e/tsconfig.e2e.json",
-      "exclude": "**/node_modules/**"
+      "project": "./tsconfig.e2e.json"
     }
   ],
   "test": {
@@ -55,6 +60,14 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {}
+    "component": {},
+    "schematics": {
+      "collection": "@nrwl/schematics",
+      "postGenerate": "npm run format",
+      "newProject": [
+        "app",
+        "lib"
+      ]
+    }
   }
 }
